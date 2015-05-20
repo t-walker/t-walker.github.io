@@ -12,7 +12,7 @@ body {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://placehold.it/1900x500') no-repeat center center scroll;
+    background:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/10891760_10203590050205032_1294390716422831869_n.jpg?oh=45433d86c1cc904540e15f26e2ee8628&oe=5605569A') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -25,14 +25,14 @@ body {
 
 .headline h1 {
     font-size: 130px;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    color: #fff;
+    text-shadow: 2px 2px #333;
 }
 
 .headline h2 {
     font-size: 77px;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    color: #fff;
+    text-shadow: 2px 2px #333;
 }
 
 .featurette-divider {

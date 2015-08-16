@@ -6,6 +6,10 @@
 
 body {
     margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background: url("../img/bg.png");
+    color: #fff;
+    text-shadow: 1px 1px #333;
+
 }
 
 .header-image {

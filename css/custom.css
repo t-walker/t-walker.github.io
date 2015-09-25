@@ -1,3 +1,7 @@
+p {
+  color: #EEEEEE;
+}
+
 .jumbotron {
     margin-bottom: 0px;
     background-color: #003c69;
@@ -28,4 +32,32 @@ a:link {
 
 a:hover {
 	color: #c60c30;
+}
+
+h3.school {
+  color: #cc6d00;
+
+}
+h2.school {
+  color: #ffa033;
+}
+
+h4.school {
+  color: #ffb866;
+}
+
+h5.school {
+  color: #ffcf99;
+}
+
+h3.projects {
+  color: #ff3333;
+}
+
+h4.leadership {
+  color: #99e600;
+}
+
+span.leadership {
+  color: #88cd00;
 }

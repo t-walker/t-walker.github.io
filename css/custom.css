@@ -2,6 +2,10 @@ p {
   color: #EEEEEE;
 }
 
+body {
+  background-image: url("img/stardust.png");
+}
+
 .jumbotron {
     margin-bottom: 0px;
     background-color: #003c69;

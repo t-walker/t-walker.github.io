@@ -1,0 +1,21 @@
+{
+  "name": "t-walker.github.io",
+  "homepage": "https://github.com/t-walker/t-walker.github.io",
+  "authors": [
+    "Tyler Walker <twalkerweb@gmail.com>"
+  ],
+  "description": "Personal website for Tyler Walker",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootswatch-scss": "^3.2.0",
+    "bootstrap-sass": "^3.3.7"
+  }
+}

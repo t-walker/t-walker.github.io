@@ -1,5 +1,7 @@
+@import "../bower_components/bootswatch-scss/flatly/variables";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "../bower_components/bootswatch-scss/flatly/bootswatch";
 
 .leadership {
   font-weight: bold;
@@ -16,4 +18,17 @@
 .hero-header {
   text-shadow: 1px 1px #000000;
   color: #FFFFFF;
+}
+
+.hero-bg {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 25, 0.6)),url('../img/hero.jpg');
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: top top;
+}
+
+@media (min-width: 992px) {
+  .col-md-6 > .panel > .panel-body {
+    min-height: 480px;
+  }
 }

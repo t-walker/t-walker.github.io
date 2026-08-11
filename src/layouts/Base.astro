@@ -1,0 +1,51 @@
+---
+import Nav from '../components/Nav.astro';
+import { site } from '../site.config';
+import '@fontsource/alfa-slab-one/400.css';
+import '@fontsource-variable/work-sans';
+import '../styles/fonts.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} — ${site.title}` : `${site.title} — ${site.tagline}`;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#33402f" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer wrap">
+      <span>&copy; {year} {site.title}</span>
+      <a href={site.instagram} target="_blank" rel="noopener noreferrer">@twalkerdev</a>
+    </footer>
+
+    <script>
+      import '../scripts/gallery.ts';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+/*
+ * Self-hosted display face. Drop `oliver.woff2` into public/fonts/ (see
+ * public/fonts/README.md) and it takes over the headings automatically —
+ * until then everything falls back to Alfa Slab One, so the site never breaks.
+ */
+@font-face {
+  font-family: 'Oliver';
+  src: url('/fonts/oliver.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oliver';
+  src: url('/fonts/oliver-oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: oblique;
+  font-display: swap;
+}

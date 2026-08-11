@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import { publicWork } from '../lib/rolls';
+---
+
+<Base title="Public Work" description="Shows, prints, and published work.">
+  <div class="page-head">
+    <p class="eyebrow">Public Work</p>
+    <h1>Shows, prints, and published frames.</h1>
+    <p>
+      Selected work that has hung on a wall, been printed, or been published. Edit this blurb in
+      <code>src/pages/public-work.astro</code>.
+    </p>
+  </div>
+
+  {
+    publicWork.length === 0 ? (
+      <div class="empty-state">
+        <p>Nothing here yet.</p>
+        <p>
+          Add <code>"public": true</code> to any <code>rolls/&lt;roll&gt;/roll.json</code> to feature it on this page.
+        </p>
+      </div>
+    ) : (
+      publicWork.map((roll, i) => <Gallery roll={roll} priority={i === 0} />)
+    )
+  }
+</Base>

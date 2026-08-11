@@ -1,0 +1,47 @@
+---
+import { site } from '../site.config';
+
+const links = [
+  { href: '/', label: 'Recent Rolls' },
+  { href: '/public-work/', label: 'Public Work' },
+  { href: '/about/', label: 'About' },
+];
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/">
+      <span class="brand__name">{site.title}</span>
+      <span class="brand__tag">{site.tagline}</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {
+        links.map((link) => {
+          const target = link.href.replace(/\/+$/, '') || '/';
+          return (
+            <a href={link.href} aria-current={target === path ? 'page' : undefined}>
+              {link.label}
+            </a>
+          );
+        })
+      }
+      <a
+        class="nav__ig"
+        href={site.instagram}
+        target="_blank"
+        rel="me noopener noreferrer"
+        aria-label="Instagram (@twalkerdev)"
+        title="@twalkerdev on Instagram"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.2"></rect>
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>

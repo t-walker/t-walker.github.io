@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+import { rolls } from '../lib/rolls';
+
+const frameCount = rolls.reduce((total, roll) => total + roll.frames.length, 0);
+---
+
+<Base title="About">
+  <div class="page-head">
+    <p class="eyebrow">About</p>
+    <h1>{site.title}</h1>
+  </div>
+
+  <div class="prose">
+    <p>
+      I shoot 35mm film and post whole rolls here — the good frames and the ones that didn't work,
+      in the order they were exposed. Edit this copy in <code>src/pages/about.astro</code>.
+    </p>
+    <p>
+      {rolls.length} {rolls.length === 1 ? 'roll' : 'rolls'} · {frameCount} frames posted so far.
+    </p>
+    <p>
+      Find me on <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>.
+    </p>
+  </div>
+</Base>

@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import { Image } from 'astro:assets';
+import { rolls, rollMetaLine } from '../../lib/rolls';
+
+export function getStaticPaths() {
+  return rolls.map((roll) => ({ params: { slug: roll.slug }, props: { roll } }));
+}
+
+const { roll } = Astro.props;
+---
+
+<Base title={roll.title} description={roll.description ?? rollMetaLine(roll)}>
+  <div class="page-head">
+    <p class="eyebrow">Roll</p>
+    <h1>{roll.title}</h1>
+    {roll.description && <p>{roll.description}</p>}
+  </div>
+  <Gallery roll={roll} priority headingLevel="h2" size="feed" hideHead />
+
+  <section class="contact-sheet">
+    <h2 class="contact-sheet__title">Contact Sheet</h2>
+    <div class="contact-sheet__grid">
+      {roll.frames.map((frame, i) => (
+        <figure class="contact-sheet__frame">
+          <Image
+            src={frame.image}
+            alt={frame.alt}
+            width={400}
+            format="webp"
+            quality={72}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{i + 1}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import { rolls } from '../lib/rolls';
+import { site } from '../site.config';
+
+const initial = rolls.slice(0, site.initialGalleries);
+const pending = rolls.slice(site.initialGalleries).map((roll) => roll.slug);
+---
+
+<Base title="Recent Rolls" description="The most recent rolls of 35mm film, newest first.">
+  <div class="page-head">
+    <p class="eyebrow">Recent Rolls</p>
+    <h1>Everything, roll by roll.</h1>
+    <p>
+      Scans posted as they come back from the lab — whole rolls, in order, keepers and misses alike.
+      Use the arrows or the strip beneath each frame to move through a roll.
+    </p>
+  </div>
+
+  {
+    rolls.length === 0 ? (
+      <div class="empty-state">
+        <p>No rolls yet.</p>
+        <p>
+          Drop a folder of scans into <code>rolls/</code> — or run <code>npm run ingest -- ./scans "Roll title"</code> —
+          and it will show up here on the next build.
+        </p>
+      </div>
+    ) : (
+      <div
+        class="feed"
+        data-feed
+        data-batch={site.galleriesPerBatch}
+        data-pending={JSON.stringify(pending)}
+      >
+        <div data-feed-list>
+          {initial.map((roll, i) => (
+            <Gallery roll={roll} priority={i === 0} />
+          ))}
+        </div>
+        <div class="feed__sentinel" data-feed-sentinel />
+        <p class="feed__status" data-feed-status />
+        <button class="feed__more" type="button" data-feed-more hidden>
+          Load more rolls
+        </button>
+      </div>
+    )
+  }
+
+  <script>
+    import '../scripts/feed.ts';
+  </script>
+</Base>

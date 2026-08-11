@@ -1,3 +1,14 @@
+node_modules/
+dist/
+.astro/
 .DS_Store
-bower_components
-.sass-cache
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Licensed fonts you self-host; see public/fonts/README.md
+public/fonts/*.woff2
+public/fonts/*.woff
+public/fonts/*.ttf
+public/fonts/*.otf

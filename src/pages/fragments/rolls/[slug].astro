@@ -1,0 +1,12 @@
+---
+import Gallery from '../../../components/Gallery.astro';
+import { rolls } from '../../../lib/rolls';
+
+export function getStaticPaths() {
+  return rolls.map((roll) => ({ params: { slug: roll.slug }, props: { roll } }));
+}
+
+const { roll } = Astro.props;
+---
+
+<Gallery roll={roll} />

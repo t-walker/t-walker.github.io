@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import type { Roll } from '../lib/rolls';
+import { rollMetaLine } from '../lib/rolls';
+
+interface Props {
+  roll: Roll;
+  priority?: boolean;
+  headingLevel?: 'h2' | 'h3';
+  size?: 'feed' | 'full';
+  /** Hide the gallery head (title/meta/desc) when the page already shows it. */
+  hideHead?: boolean;
+}
+
+const { roll, priority = false, headingLevel = 'h2', size = 'feed', hideHead = false } = Astro.props;
+const Heading = headingLevel;
+const meta = rollMetaLine(roll);
+const showRail = roll.frames.length > 1;
+const hasCaptions = roll.frames.some((frame) => frame.caption);
+---
+
+<film-gallery
+  class:list={['gallery', { 'gallery--full': size === 'full' }]}
+  id={`roll-${roll.slug}`}
+  data-slug={roll.slug}
+>
+  {!hideHead && (
+  <div class="gallery__head">
+    <Heading class="gallery__title">
+      <a href={`/rolls/${roll.slug}/`}>{roll.title}</a>
+    </Heading>
+    {meta && <p class="gallery__meta">{meta}</p>}
+  </div>
+  )}
+
+  {!hideHead && roll.description && <p class="gallery__desc">{roll.description}</p>}
+
+  <div class="stage" role="group" aria-roledescription="carousel" aria-label={`${roll.title} frames`}>
+    <div class="stage__frames">
+      {
+        roll.frames.map((frame, i) => (
+          <figure
+            class:list={['frame', { 'is-active': i === 0 }]}
+            data-caption={frame.caption ?? ''}
+            aria-hidden={i === 0 ? 'false' : 'true'}
+          >
+            <Image
+              src={frame.image}
+              alt={frame.alt}
+              widths={[720, 1200, 1800]}
+              sizes="(max-width: 800px) 100vw, 1140px"
+              format="webp"
+              quality={80}
+              loading={priority && i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </figure>
+        ))
+      }
+    </div>
+
+    {
+      showRail && (
+        <>
+          <button class="stage__nav stage__nav--prev" type="button" aria-label="Previous frame">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M15 5.5 8 12l7 6.5z"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <button class="stage__nav stage__nav--next" type="button" aria-label="Next frame">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M9 5.5 16 12l-7 6.5z"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="3.2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <span class="stage__counter" aria-hidden="true">
+            1 / {roll.frames.length}
+          </span>
+        </>
+      )
+    }
+  {
+    hasCaptions && (
+      <p class:list={['caption', { 'is-empty': !roll.frames[0]?.caption }]} aria-live="polite">
+        <span>{roll.frames[0]?.caption ?? ''}</span>
+      </p>
+    )
+  }
+  </div>
+
+  {
+    showRail && (
+      <div class="rail">
+        <button class="rail__nav rail__nav--prev" type="button" aria-label="Scroll thumbnails left">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 6 9 12l6 6z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <div class="rail__scroll" role="tablist" aria-label={`${roll.title} thumbnails`}>
+          {roll.frames.map((frame, i) => (
+            <button
+              class="thumb"
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-label={`Frame ${i + 1}: ${frame.file}`}
+            >
+              <Image
+                src={frame.image}
+                alt=""
+                width={180}
+                height={126}
+                fit="cover"
+                format="webp"
+                quality={62}
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
+
+        <button class="rail__nav rail__nav--next" type="button" aria-label="Scroll thumbnails right">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 6l6 6-6 6z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    )
+  }
+
+  {!hideHead && (
+  <p class="gallery__footer">
+    <a href={`/rolls/${roll.slug}/`}>{roll.frames.length} frames — view roll</a>
+  </p>
+  )}
+</film-gallery>

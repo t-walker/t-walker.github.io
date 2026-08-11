@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
+import { Image } from 'astro:assets';
+import homeIntro from '../assets/home-intro.jpg';
 import { rolls } from '../lib/rolls';
 import { site } from '../site.config';
 
@@ -9,20 +11,34 @@ const pending = rolls.slice(site.initialGalleries).map((roll) => roll.slug);
 ---
 
 <Base title="Recent Rolls" description="The most recent rolls of 35mm film, newest first.">
-  <div class="page-head">
-    <h1>Just Roll With It</h1>
-    <p>
-      I started my journey with film photography in April of 2025 after buying my Pentax K1000 at Golden Hour Cameras in Tacoma, WA. 
-    </p>
-    <p>
-      Any time you're working with color negative images there is some amount of <i>editing</i> that happens.
-      Some people don't believe in editing their scans from the lab, but every scan or print is someone's opinion of what looks rights.
-    </p>
-    <p>
-      This site is a gallery to help show what I've captured, developed, and scanned. When possible I will mention the lab and scanning processes used.
-      Above all, it is a place to see my work: for better or for worse.
-    </p>
-  </div>
+  <section class="home-intro">
+    <div class="home-intro__copy">
+      <h1>Just Roll With It</h1>
+      <p>
+        I started my journey with film photography in April of 2025 after buying my Pentax K1000 at Golden Hour Cameras in Tacoma, WA.
+      </p>
+      <p>
+        Any time you're working with color negative images there is some amount of <i>editing</i> that happens.
+        Some people don't believe in editing their scans from the lab, but every scan or print is someone's opinion of what looks rights.
+      </p>
+      <p>
+        This site is a gallery to help show what I've captured, developed, and scanned. When possible I will mention the lab and scanning processes used.
+        Above all, it is a place to see my work: for better or for worse.
+      </p>
+    </div>
+    <div class="home-intro__image">
+      <Image
+        src={homeIntro}
+        alt="A crowd at a baseball game, centered on a person wearing a Brew Chacho shirt"
+        widths={[640, 960, 1400]}
+        sizes="(max-width: 800px) 100vw, 48vw"
+        format="webp"
+        quality={82}
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </section>
 
   {
     rolls.length === 0 ? (

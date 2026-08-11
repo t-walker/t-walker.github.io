@@ -7,13 +7,15 @@ Static photography site (Astro → GitHub Pages). Full-res-ish film scans live i
 
 ```
 rolls/<slug>/roll.json + frame-NN.jpg   photo content + metadata (see rolls/README.md)
-src/lib/rolls.ts                        globs rolls/, sorts, exposes `rolls` + `publicWork`
+src/lib/rolls.ts                        globs and sorts film rolls
+src/lib/works.ts                        globs standalone featured photographs from works/
 src/components/Gallery.astro            one roll: focused frame, arrows, thumbnail rail
 src/scripts/gallery.ts                  <film-gallery> custom element behaviour
 src/scripts/feed.ts                     infinite scroll on the home page
 src/pages/fragments/rolls/[slug].astro  pre-rendered gallery fragments the feed fetches
 src/site.config.ts                      title, tagline, Instagram URL, batch sizes
 scripts/ingest-roll.mjs                 roll ingest CLI
+works/<slug>/work.json + image          standalone Public Work entries
 ```
 
 ## Ingesting a roll (the common task)

@@ -3,7 +3,6 @@
   "film": "Kodak Tmax 400",
   "camera": "Yashica Mat",
   "date": "2026-07-01",
-  "public": false,
   "order": [
     "frame-01.jpg",
     "frame-02.jpg",

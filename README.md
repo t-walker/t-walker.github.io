@@ -7,7 +7,8 @@ Film photography site — built with [Astro](https://astro.build), deployed to G
 | Path | What it is |
 | --- | --- |
 | `/` | **Recent Rolls** — infinitely scrolling feed of roll galleries, newest first |
-| `/public-work/` | **Public Work** — rolls flagged `"public": true` |
+| `/public-work/` | **Public Work** — standalone featured photographs from `works/` |
+| `/process/` | **Dev / Scan Process** — development, camera scanning, conversion, and web output |
 | `/about/` | **About** |
 | `/rolls/<slug>/` | A single roll on its own page |
 | Instagram icon | Links out to [@twalkerdev](https://www.instagram.com/twalkerdev/) |

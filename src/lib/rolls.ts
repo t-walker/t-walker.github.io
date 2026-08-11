@@ -13,8 +13,6 @@ export interface RollMeta {
   date?: string;
   location?: string;
   description?: string;
-  /** When true the roll also appears on /public-work */
-  public?: boolean;
   /** When true the roll is skipped everywhere. */
   draft?: boolean;
   /** Filenames, in the order you want them shown. Anything not listed is appended alphabetically. */
@@ -145,14 +143,13 @@ function buildRolls(): Roll[] {
 
 export const rolls: Roll[] = buildRolls();
 
-export const publicWork: Roll[] = rolls.filter((roll) => roll.public);
-
 export function getRoll(slug: string): Roll | undefined {
   return rolls.find((roll) => roll.slug === slug);
 }
 
 export function formatDate(date?: string): string | undefined {
   if (!date) return undefined;
+  if (/^\d{4}$/.test(date)) return date;
   const parsed = Date.parse(date);
   if (Number.isNaN(parsed)) return date;
   return new Intl.DateTimeFormat('en-US', {
@@ -164,7 +161,7 @@ export function formatDate(date?: string): string | undefined {
 }
 
 export function rollMetaLine(roll: Roll): string {
-  return [roll.camera, roll.film, roll.location, formatDate(roll.date)]
+  return [roll.camera, roll.lens, roll.film, roll.location, formatDate(roll.date)]
     .filter(Boolean)
     .join(' · ');
 }

@@ -25,7 +25,6 @@ Every field is optional — an image folder with no `roll.json` still shows up
   "date": "2026-05-04",
   "location": "Winthrop, WA",
   "description": "One line about the roll.",
-  "public": false,
   "draft": false,
   "cover": "frame-03.jpg",
   "order": ["frame-01.jpg", "frame-02.jpg"],
@@ -38,8 +37,7 @@ Every field is optional — an image folder with no `roll.json` still shows up
 
 Per-image descriptions are optional and per-frame — caption the two frames you
 care about and leave the rest blank. They appear under the photo on **Recent
-Rolls**, **Public Work**, and the roll's own page, and double as the image alt
-text.
+Rolls** and the roll's own page, and double as the image alt text.
 
 | Field | Meaning |
 | --- | --- |
@@ -47,7 +45,6 @@ text.
 | `film`, `camera`, `lens`, `location` | Shown in the gallery meta line. |
 | `date` | `YYYY-MM-DD`. Drives the newest-first ordering on the home page. Falls back to a leading date in the folder name. |
 | `description` | Short blurb under the title. |
-| `public` | `true` also lists the roll on **/public-work**. |
 | `draft` | `true` hides the roll everywhere. |
 | `cover` | Filename shown first. |
 | `order` | Explicit frame order; anything not listed is appended in natural sort order. |

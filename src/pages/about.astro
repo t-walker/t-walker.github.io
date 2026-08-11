@@ -7,20 +7,18 @@ const frameCount = rolls.reduce((total, roll) => total + roll.frames.length, 0);
 ---
 
 <Base title="About">
-  <div class="page-head">
+  <div class="page-head page-head--wide">
     <h1>{site.title}</h1>
   </div>
 
   <div class="prose">
     <p>
-      I shoot 35mm film and post whole rolls here — the good frames and the ones that didn't work,
-      in the order they were exposed. Edit this copy in <code>src/pages/about.astro</code>.
+      I have dabbled with photography here and there since I was a child.
     </p>
     <p>
-      {rolls.length} {rolls.length === 1 ? 'roll' : 'rolls'} · {frameCount} frames posted so far.
-    </p>
-    <p>
-      Find me on <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>.
+      In January of 2025 I purchased a FujiFilm X100VI with the intention of taking photos of friends and family that I could actually print out and hold.
+      I host a lot of dinners, parties, and holidays at my house and I just wanted something more convenient than my iPhone camera to capture those moments.
+      Shortly after getting my camera I found the Tacoma Photo Club where I started attending meetups, photo walks, and eventually became an organizer of the group.
     </p>
   </div>
 </Base>

@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#33402f" />
+    <meta name="theme-color" content="#303724" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/wayside-monoline.woff2" as="font" type="font/woff2" crossorigin />
@@ -46,8 +46,26 @@ const year = new Date().getFullYear();
       <a href={site.instagram} target="_blank" rel="noopener noreferrer">@twalkerdev</a>
     </footer>
 
+    <dialog class="photo-lightbox" data-lightbox aria-label="Full-screen photograph">
+      <button class="photo-lightbox__close" type="button" data-lightbox-close aria-label="Close full-screen photo">
+        Close
+      </button>
+      <button class="photo-lightbox__nav photo-lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Previous photo">
+        <span aria-hidden="true">‹</span>
+      </button>
+      <figure class="photo-lightbox__figure">
+        <img data-lightbox-image alt="" />
+        <figcaption data-lightbox-caption></figcaption>
+        <span class="photo-lightbox__counter" data-lightbox-counter aria-hidden="true"></span>
+      </figure>
+      <button class="photo-lightbox__nav photo-lightbox__nav--next" type="button" data-lightbox-next aria-label="Next photo">
+        <span aria-hidden="true">›</span>
+      </button>
+    </dialog>
+
     <script>
       import '../scripts/gallery.ts';
+      import '../scripts/lightbox.ts';
     </script>
   </body>
 </html>

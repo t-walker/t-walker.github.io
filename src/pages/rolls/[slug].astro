@@ -26,7 +26,8 @@ const { roll } = Astro.props;
           <Image
             src={frame.image}
             alt={frame.alt}
-            width={400}
+            widths={[400, 800, 1200]}
+            sizes="(max-width: 640px) 50vw, 25vw"
             format="webp"
             quality={72}
             loading="lazy"

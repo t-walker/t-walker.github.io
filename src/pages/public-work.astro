@@ -1,27 +1,49 @@
 ---
 import Base from '../layouts/Base.astro';
-import Gallery from '../components/Gallery.astro';
-import { publicWork } from '../lib/rolls';
+import { Image } from 'astro:assets';
+import { works, workMetaLine } from '../lib/works';
 ---
 
 <Base title="Public Work" description="Shows, prints, and published work.">
   <div class="page-head">
-    <h1>Shows, prints, and published frames.</h1>
+    <h1>Featured Work</h1>
     <p>
-      Selected work that has been featured in public galleries or shows.
+      Selected photographs shown in galleries, exhibitions, and public spaces.
     </p>
   </div>
 
   {
-    publicWork.length === 0 ? (
+    works.length === 0 ? (
       <div class="empty-state">
         <p>Nothing here yet.</p>
         <p>
-          Add <code>"public": true</code> to any <code>rolls/&lt;roll&gt;/roll.json</code> to feature it on this page.
+          Add a photograph and <code>work.json</code> under <code>works/&lt;slug&gt;/</code>.
         </p>
       </div>
     ) : (
-      publicWork.map((roll, i) => <Gallery roll={roll} priority={i === 0} />)
+      <div class="featured-grid">
+        {works.map((work, i) => (
+            <article class="featured-work">
+              <div class="featured-work__image">
+                <Image
+                  src={work.image}
+                  alt={work.alt ?? work.title}
+                  widths={[640, 960, 1280]}
+                  sizes="(max-width: 720px) 100vw, 50vw"
+                  format="webp"
+                  quality={82}
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+              <div class="featured-work__body">
+                <h2>{work.title}</h2>
+                {work.description && <p class="featured-work__context">{work.description}</p>}
+                <p class="featured-work__meta">{workMetaLine(work)}</p>
+              </div>
+            </article>
+        ))}
+      </div>
     )
   }
 </Base>

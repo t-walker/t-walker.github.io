@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
   <filter id="paper">
     <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="5" stitchTiles="stitch" result="noise"/>
-    <feDiffuseLighting in="noise" lighting-color="#f2ead8" surfaceScale="1.8" result="lit">
+    <feDiffuseLighting in="noise" lighting-color="#f0e5c9" surfaceScale="1.8" result="lit">
       <feDistantLight azimuth="45" elevation="55"/>
     </feDiffuseLighting>
     <feComposite operator="in" in="lit" in2="SourceGraphic"/>
   </filter>
-  <rect width="100%" height="100%" fill="#33402f"/>
+  <rect width="100%" height="100%" fill="#303724"/>
   <rect width="100%" height="100%" filter="url(#paper)" opacity="0.06"/>
 </svg>

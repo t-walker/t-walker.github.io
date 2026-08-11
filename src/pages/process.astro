@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Dev / Scan Process"
+  description="How Tyler Walker develops, camera-scans, converts, and prepares film photographs for the web."
+>
+  <header class="page-head process-head">
+    <h1>Dev / Scan Process</h1>
+    <p>
+      This is my typical workflow. Individual rolls may use a different lab,
+      chemistry, or scanning approach; when that context matters, I'll note it
+      alongside the roll.
+      </p>
+      <p>
+      I've started developing myself but I've also used:
+      <ul>
+        <li>Moody's Film Lab in Burien, WA</li>
+        <li>We Develop Film in Edmonds, WA</li>
+        <li>Panda Lab in Seattle, WA</li> 
+        <li>The Darkroom</li>
+        <li>Color House in New York, NY</li>
+      </ul>
+    </p>
+  </header>
+
+  <ol class="process-steps">
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">01</span>
+      <div>
+        <h2>Development</h2>
+        <p>
+          Development is part of the image-making process, not an invisible
+          mechanical step. Film stock, chemistry, time, temperature, and the
+          lab's handling all affect contrast, grain, color, and density.
+        </p>
+        <p>
+          I keep the negatives as the source of record and document the lab or
+          development process on the roll whenever that information is useful.
+        </p>
+      </div>
+    </li>
+
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">02</span>
+      <div>
+        <h2>Negative Preparation</h2>
+        <p>
+          Before scanning, I inspect the film and remove loose dust with clean,
+          non-contact tools. The negative is loaded into a VALOI easy120 carrier,
+          which keeps both 35mm and medium-format film flat and consistently
+          positioned above the light source.
+        </p>
+      </div>
+    </li>
+
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">03</span>
+      <div>
+        <h2>Camera Scanning</h2>
+        <p>
+          I digitize each frame with a Nikon Zf. The camera is aligned square to
+          the negative, focus and exposure are set manually, and the files are
+          captured in RAW so the negative's available color and tonal information
+          remains intact.
+        </p>
+        <p>
+          The goal at this stage is a sharp, evenly illuminated reproduction—not
+          a finished positive.
+        </p>
+      </div>
+    </li>
+
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">04</span>
+      <div>
+        <h2>Conversion</h2>
+        <p>
+          RAW captures are brought into Adobe Lightroom Classic and converted
+          with Negative Lab Pro. I establish a neutral starting point from the
+          film border, crop the frame, and let the conversion preserve as much
+          useful highlight and shadow information as possible.
+        </p>
+      </div>
+    </li>
+
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">05</span>
+      <div>
+        <h2>Edit &amp; Cleanup</h2>
+        <p>
+          Every scan or darkroom print is an interpretation. I adjust color,
+          density, contrast, and framing to reach the photograph I intended—not
+          to pretend that a scan arrived without choices.
+        </p>
+        <p>
+          Cleanup is generally limited to dust and physical defects from the
+          scanning process. I want the photograph to remain a photograph.
+        </p>
+      </div>
+    </li>
+
+    <li class="process-step">
+      <span class="process-step__number" aria-hidden="true">06</span>
+      <div>
+        <h2>Web Output</h2>
+        <p>
+          Finished masters are exported as high-quality JPEGs. The site's ingest
+          tool stores a web master no larger than 2600 pixels on the long edge at
+          JPEG quality 86. During the site build, Astro creates responsive WebP
+          versions so visitors download only the size their screen needs.
+        </p>
+      </div>
+    </li>
+  </ol>
+
+  <aside class="process-note">
+    <h2>Why describe the process?</h2>
+    <p>
+      Film does not remove editing; it moves those decisions into development,
+      printing, scanning, and conversion. Sharing the process makes those choices
+      visible and gives each roll a little more context.
+    </p>
+  </aside>
+</Base>

@@ -1,20 +1,32 @@
 /*
- * Self-hosted display face. Drop `oliver.woff2` into public/fonts/ (see
- * public/fonts/README.md) and it takes over the headings automatically —
- * until then everything falls back to Alfa Slab One, so the site never breaks.
+ * Wayside Colorado — licensed display fonts.
+ * Monoline (script): wordmark / brand name
+ * Sans (condensed caps): page headings / roll titles
+ *
+ * font-display: block prevents FOUT — the browser waits for the font
+ * rather than flashing unstyled text, since these are only used on
+ * a few prominent headings.
  */
 @font-face {
-  font-family: 'Oliver';
-  src: url('/fonts/oliver.woff2') format('woff2');
+  font-family: 'Wayside Monoline';
+  src: url('/fonts/wayside-monoline.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
-  font-family: 'Oliver';
-  src: url('/fonts/oliver-oblique.woff2') format('woff2');
+  font-family: 'Wayside Sans';
+  src: url('/fonts/wayside-sans.woff2') format('woff2');
   font-weight: 400;
-  font-style: oblique;
-  font-display: swap;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Wayside Script';
+  src: url('/fonts/wayside-script.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
 }

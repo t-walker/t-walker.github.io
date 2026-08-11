@@ -7,8 +7,5 @@ Thumbs.db
 .env
 .env.*
 
-# Licensed fonts you self-host; see public/fonts/README.md
-public/fonts/*.woff2
-public/fonts/*.woff
-public/fonts/*.ttf
-public/fonts/*.otf
+# Licensed fonts — Oliver demo is gitignored; Wayside is licensed and committed
+public/fonts/oliver*.woff2

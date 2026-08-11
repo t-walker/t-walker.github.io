@@ -13,7 +13,6 @@ const { roll } = Astro.props;
 
 <Base title={roll.title} description={roll.description ?? rollMetaLine(roll)}>
   <div class="page-head">
-    <p class="eyebrow">Roll</p>
     <h1>{roll.title}</h1>
     {roll.description && <p>{roll.description}</p>}
   </div>

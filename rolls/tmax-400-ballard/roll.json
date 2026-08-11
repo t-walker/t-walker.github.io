@@ -17,5 +17,19 @@
     "frame-10.jpg",
     "frame-11.jpg",
     "frame-12.jpg"
-  ]
+  ],
+    "captions": {
+    "frame-01.jpg": "An old car we saw in Ballard.",
+    "frame-02.jpg": "Ballard Free Masons Sign",
+    "frame-03.jpg": "My friend Paul",
+    "frame-04.jpg": "My friend Kalina",
+    "frame-05.jpg": "My friend Kristin",
+    "frame-06.jpg": "My friend Gabriel",
+    "frame-07.jpg": "People at Kiwi & Kangaroo in Ballard",
+    "frame-08.jpg": "People at Kiwi & Kangaroo in Ballard",
+    "frame-09.jpg": "Chainlink Fence",
+    "frame-10.jpg": "My friend Chris",
+    "frame-11.jpg": "My friend Josh",
+    "frame-12.jpg": "People at Kiwi & Kangaroo in Ballard"
+  }
 }

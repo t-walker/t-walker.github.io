@@ -138,7 +138,7 @@ code {
   gap: 24px;
   /* Full-bleed bar: spans the viewport rather than the content column. */
   width: 100%;
-  padding: 14px clamp(20px, 3.2vw, 52px);
+  padding: 20px clamp(20px, 3.2vw, 52px);
   max-width: var(--max);
   margin: 0 auto;
   min-height: 84px;
@@ -168,7 +168,7 @@ code {
   letter-spacing: 0.18em;
   color: var(--ink-faint);
   text-transform: uppercase;
-  margin-top: 7px;
+  margin-top: 12px;
 }
 
 .nav {

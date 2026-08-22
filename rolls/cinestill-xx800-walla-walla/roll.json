@@ -3,6 +3,8 @@
   "film": "CineStill XX 800",
   "camera": "Nikon FE2",
   "date": "2026-06-20",
+  "location": "Walla Walla, WA",
+  "public": false,
   "order": [
     "frame-01.jpg",
     "frame-02.jpg",
@@ -43,7 +45,6 @@
     "frame-37.jpg",
     "frame-38.jpg",
     "frame-39.jpg",
-    "frame-40.jpg",
-    "frame-41.jpg"
+    "frame-40.jpg"
   ]
 }

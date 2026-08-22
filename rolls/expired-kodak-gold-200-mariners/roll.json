@@ -3,6 +3,8 @@
   "film": "Expired Kodak Gold 200",
   "camera": "Nikon F3",
   "date": "2026-07-20",
+  "location": "Seattle, WA",
+  "public": false,
   "order": [
     "frame-01.jpg",
     "frame-02.jpg",
@@ -28,7 +30,6 @@
     "frame-22.jpg",
     "frame-23.jpg",
     "frame-24.jpg",
-    "frame-25.jpg",
-    "frame-26.jpg"
+    "frame-25.jpg"
   ]
 }

@@ -3,6 +3,8 @@
   "film": "Kodak Ektar 100",
   "camera": "Nikon FE2",
   "date": "2026-08-01",
+  "location": "Woodinville, WA",
+  "public": false,
   "order": [
     "frame-01.jpg",
     "frame-02.jpg",
@@ -40,7 +42,6 @@
     "frame-34.jpg",
     "frame-35.jpg",
     "frame-36.jpg",
-    "frame-37.jpg",
-    "frame-38.jpg"
+    "frame-37.jpg"
   ]
 }

@@ -3,6 +3,8 @@
   "film": "CineStill 400D",
   "camera": "Nikon F3",
   "date": "2026-07-20",
+  "location": "Seattle, WA",
+  "public": false,
   "order": [
     "frame-01.jpg",
     "frame-02.jpg",
@@ -41,7 +43,6 @@
     "frame-35.jpg",
     "frame-36.jpg",
     "frame-37.jpg",
-    "frame-38.jpg",
-    "frame-39.jpg"
+    "frame-38.jpg"
   ]
 }
